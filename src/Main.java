@@ -1,17 +1,22 @@
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Main {
     private static void info(Transport transport) {
         System.out.print(transport.getBrand() + transport.getModel() + " ");
-        for (Driver<?> driver: transport.getDriverList()) {
+        Set<Driver> driverSet = new HashSet<>(transport.getDriverList());
+        for (Driver<?> driver: driverSet) {
             System.out.print(driver.getName());
         }
         System.out.print(" ");
-        for (Mechanic<?> mechanic: transport.getMechanicList()) {
+        Set<Mechanic> mechanicSet = new HashSet<>(transport.getMechanicList());
+        for (Mechanic<?> mechanic: mechanicSet) {
             System.out.print(mechanic.getName() + mechanic.getCompany());
         }
         System.out.println(" ");
-        for (Sponsor sponsor: transport.getSponsorList()) {
+        Set<Sponsor> sponsorSet = new HashSet<>(transport.getSponsorList());
+        for (Sponsor sponsor: sponsorSet) {
             System.out.print(sponsor.getName());
         }
     }
